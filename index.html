@@ -67,6 +67,21 @@
 
   /* Hero */
   .hero { text-align: center; padding: 48px 0 20px; }
+  .icon-radar { position: relative; display: inline-block; line-height: 0; }
+  .icon-radar .ping {
+    position: absolute; top: 50%; left: 50%; width: 112px; height: 112px;
+    margin: -56px 0 0 -56px; border-radius: 50%;
+    border: 2px solid rgba(124, 178, 255, 0.55);
+    animation: radar-ping 3.2s cubic-bezier(0.2, 0.6, 0.35, 1) infinite;
+    pointer-events: none;
+  }
+  .icon-radar .ping.delay { animation-delay: 1.6s; }
+  @keyframes radar-ping {
+    0%   { transform: scale(0.72); opacity: 0; }
+    12%  { opacity: 0.65; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+  .hero img.appicon { position: relative; }
   .hero img.appicon { width: 112px; height: 112px; border-radius: 24px; box-shadow: 0 18px 50px rgba(0,0,0,0.55); }
   .hero h1 {
     font-size: clamp(38px, 6vw, 60px);
@@ -162,7 +177,11 @@
 <main class="wrap" id="main">
 
   <div class="hero">
-    <img class="appicon" src="icon-256.png" alt="Overhead app icon">
+    <div class="icon-radar">
+      <span class="ping" aria-hidden="true"></span>
+      <span class="ping delay" aria-hidden="true"></span>
+      <img class="appicon" src="icon-256.png" alt="Overhead app icon">
+    </div>
     <h1>See what's flying over your location.</h1>
     <p class="tag">Overhead is a native Mac app that tracks every aircraft near your home in real time — on a live map, in desktop widgets, and with a heads-up before something passes overhead.</p>
     <a class="cta" href="https://github.com/belgort-clark/overhead-updates/releases/download/updates/Overhead.dmg">
