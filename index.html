@@ -104,12 +104,11 @@
   .ico svg { width: 19px; height: 19px; }
 
   .split { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
-  /* width:100% is required — the SVG inside is absolutely positioned, so
-     max-width alone leaves the box with no intrinsic size. */
-  .scope { width: 100%; max-width: 320px; aspect-ratio: 1; margin: 0 auto; border-radius: 18px;
-           background: #041108; border: 1px solid rgba(115,255,153,0.18); position: relative; overflow: hidden;
-           box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
-  .scope svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .widget-shots { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;
+                  justify-content: center; margin: 8px 0 30px; }
+  .widget-shots img { display: block; border-radius: 20px;
+                      box-shadow: 0 18px 44px rgba(0,0,0,0.5); }
+  .widget-stack { display: flex; flex-direction: column; gap: 20px; }
 
   ul.checks { list-style: none; padding: 0; margin: 18px 0 0; }
   ul.checks li { padding: 7px 0 7px 26px; position: relative; color: var(--muted); }
@@ -216,37 +215,23 @@
   <section id="widgets">
     <h2>Widgets for your desktop</h2>
     <p class="lede">Three radar-scope widgets keep the sky visible without opening the app — in any accent color you like.</p>
-    <div class="split">
-      <div>
-        <ul class="checks">
-          <li><strong>Nearest Aircraft</strong> — the closest plane, its type, distance, and altitude</li>
-          <li><strong>Sky Radar</strong> — every aircraft plotted at its true bearing and distance</li>
-          <li><strong>Sky Board</strong> — the scope plus the five nearest aircraft</li>
-          <li>Click any widget to open that aircraft in the app</li>
-        </ul>
-      </div>
-      <div class="scope" role="img" aria-label="Illustration of the Sky Radar widget: a green radar scope with range rings and aircraft plotted at their bearing and distance from home.">
-        <svg viewBox="0 0 300 300" aria-hidden="true">
-          <g stroke="#73ff99" fill="none">
-            <circle cx="150" cy="150" r="46" opacity="0.22"/>
-            <circle cx="150" cy="150" r="92" opacity="0.22"/>
-            <circle cx="150" cy="150" r="138" opacity="0.22"/>
-            <path d="M150 6v288M6 150h288" opacity="0.12"/>
-          </g>
-          <circle cx="150" cy="150" r="4" fill="#73ff99"/>
-          <g fill="#73ff99">
-            <g transform="translate(196,96) rotate(35)"><path transform="translate(-7,-7) scale(0.6)" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></g>
-            <g transform="translate(96,186) rotate(-40)"><path transform="translate(-7,-7) scale(0.6)" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></g>
-            <g transform="translate(210,206) rotate(140)"><path transform="translate(-7,-7) scale(0.6)" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></g>
-          </g>
-          <g fill="#ffd93d">
-            <g transform="translate(112,104) rotate(70)"><path transform="translate(-7,-7) scale(0.6)" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></g>
-          </g>
-          <text x="16" y="26" fill="#73ff99" opacity="0.55" font-size="13" font-family="ui-monospace, monospace">25nm</text>
-          <text x="16" y="288" fill="#73ff99" font-size="15" font-family="ui-monospace, monospace">24</text>
-        </svg>
+    <div class="widget-shots">
+      <img src="widget-large.png" width="364" height="382"
+           alt="Sky Board widget: a large radar scope with aircraft plotted around home, above a list of the five nearest — callsign, distance and altitude.">
+      <div class="widget-stack">
+        <img src="widget-medium.png" width="364" height="170"
+             alt="Sky Radar widget, medium size: a radar scope beside the three nearest aircraft with their distance and altitude.">
+        <img src="widget-small.png" width="170" height="170"
+             alt="Nearest Aircraft widget: the closest flight, ASA512, a Boeing 737-900, 3.7 miles away at 12,500 feet.">
       </div>
     </div>
+
+    <ul class="checks">
+      <li><strong>Nearest Aircraft</strong> — the closest plane, its type, distance, and altitude</li>
+      <li><strong>Sky Radar</strong> — every aircraft plotted at its true bearing and distance</li>
+      <li><strong>Sky Board</strong> — the scope plus the five nearest aircraft</li>
+      <li>Click any widget to open that aircraft in the app</li>
+    </ul>
   </section>
 
   <section id="install">
